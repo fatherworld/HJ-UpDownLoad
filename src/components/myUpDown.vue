@@ -7,6 +7,7 @@
       drag
 			action="http://localhost:10002/upload"
       multiple
+      accept=".zip"
       :file-list="fileList"
       :on-success="handleSucess"
       :before-upload="beforeAvatarUpload">
@@ -53,7 +54,8 @@ export default {
     beforeAvatarUpload(file) {
       //alert(file.type)
       console.log("beforeAvatarUpload");
-      const isZIP = file.type === "application/zip"
+      console.log("file.type:"+file.type)
+      const isZIP = file.type === "application/x-zip-compressed"
       const isJPG = file.type === 'image/jpeg';
       const isPNG = file.type === 'image/png';
       const isPDF = file.type === 'application/pdf';
